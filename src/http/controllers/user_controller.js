@@ -20,9 +20,10 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
     try{
-
+        const content = await Competitor.findById(req.params.id).exec();
+        res.json(content);
     } catch(error){
-
+        res.status(400).json(error);
     }
 }
 
